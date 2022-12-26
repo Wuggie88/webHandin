@@ -14,7 +14,12 @@ class HomeController extends Controller {
 	 */
 	public function index ($param_a = null, $param_b = null) {
 				
-		$this->view('user', 'login', $viewbag);
+		if($this->logged_in()){
+            $this->view('home', 'index', $viewbag);
+        }else{
+            $this->view('user', 'login', $viewbag);
+        }
+        
 	}
 	
 	/**
