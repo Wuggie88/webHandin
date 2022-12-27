@@ -1,5 +1,5 @@
 h1 {
-    color: red;
+    color: mediumpurple;
 }
 
 body {
@@ -23,14 +23,20 @@ header, footer {
 }
 
 nav, nav a {
-    background-color: green;
+    background-color: purple;
     color: white;
     padding: 6px; 
 }
 nav a:hover {
-    background-color: purple;
+    background-color: blue;
 }
 
 footer {
     text-align: center;
+}
+
+@media (max-width: 740px){
+    .container{
+        background-color: aquamarine;
+    }
 }
