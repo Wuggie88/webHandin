@@ -14,6 +14,7 @@ body {
     margin: 0 auto;
     min-height: 90vh;
     padding: 4%;
+    text-align: center;
 }
 
 header, footer {
@@ -33,6 +34,14 @@ nav a:hover {
 
 footer {
     text-align: center;
+}
+
+td, th {
+    outline: solid 1px black;
+}
+
+table {
+    margin: 0 auto;
 }
 
 @media (max-width: 740px){
