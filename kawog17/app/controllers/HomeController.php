@@ -15,16 +15,14 @@ class HomeController extends Controller {
 	public function index ($param_a = null, $param_b = null) {
 				
 		if($this->logged_in()){
-            $this->view('home', 'index', $viewbag);
+            $this->view('home', 'dashboard', $viewbag);
         }else{
             $this->view('user', 'login', $viewbag);
         }
         
 	}
 	
-	/**
-	 * Example of function that must only be called when user is logged in
-	 */
+    
 	public function restricted () {
 		if($this->logged_in()) {
 			$this->view('home', 'restricted');
@@ -33,13 +31,6 @@ class HomeController extends Controller {
 		}
 	}
     
-    public function userlist (){
-        if($this->logged_in()) {
-			$this->view('home', 'userlist');
-		} else {
-			header('Location: /user/login');
-		}
-    }
     
     public function dashboard (){
         if($this->logged_in()) {

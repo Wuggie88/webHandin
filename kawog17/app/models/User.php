@@ -7,12 +7,12 @@ class User extends Database {
 	 */
 	public function login(){
 		
-		$email = filter_var ( $_POST['email'], FILTER_SANITIZE_STRING);
-		$password = filter_var ( $_POST['password'], FILTER_SANITIZE_STRING);
+		$username = filter_var ( $_POST['username'], FILTER_UNSAFE_RAW);
+		$password = filter_var ( $_POST['password'], FILTER_UNSAFE_RAW);
 		
 		
 		
-		$result = $this->select_one ("user", "email", $email);
+		$result = $this->select_one ("user", "username", $username);
 /*
 		$sql = "SELECT email, password FROM user WHERE email = :email";
 		
@@ -31,21 +31,17 @@ class User extends Database {
 	public function register() {
 
 		$email = filter_var ( $_POST['email'], FILTER_UNSAFE_RAW);
-        /*
-        $name = filter_var ( $_POST['name'], FILTER_SANITIZE_STRING);
-        $username = filter_var ( $_POST['username'], FILTER_SANITIZE_STRING);
-        */
+        $name = filter_var ( $_POST['name'], FILTER_UNSAFE_RAW);
+        $username = filter_var ( $_POST['username'], FILTER_UNSAFE_RAW);
 		$password = filter_var ( $_POST['password'], FILTER_UNSAFE_RAW);
 		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-		$sql = "INSERT INTO user (email, password) VALUES (:email, :password);";
+		$sql = "INSERT INTO user (email, name, username, password) VALUES (:email, :name, :username, :password);";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':email', $email);
-        /*
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':username', $username);
-        */
 		$stmt->bindParam(':password', $hashed_password);
 		$stmt->execute();
 
@@ -57,7 +53,7 @@ class User extends Database {
 	 * Gets all users from the database, but without revealing their password hash
 	 */
 	public function get_users () {
-		$sql = "SELECT user_id, email FROM user";
+		$sql = "SELECT user_id, email, name, username FROM user";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
