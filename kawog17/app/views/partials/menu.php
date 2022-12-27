@@ -1,10 +1,11 @@
 <nav>
     <div>Menu
-        <a href="/home/restricted">restricted</a>
-        <a href="/user/register">register</a>
-
+        <a href="/user/register">Register</a>
         <?php if(isset($_SESSION['logged_in'])) : ?>
-            <a href="/user/logout">logout</a>
+            <a href="/home/userlist">User list</a>
+            <a href="/home/uploadpage">Upload</a>
+            <a href="/home/dashboard">Dashboard</a>
+            <a href="/user/logout">Logout</a>
             
         <?php else : ?>
             <a href="/user/login">login</a>

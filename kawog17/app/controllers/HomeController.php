@@ -32,5 +32,29 @@ class HomeController extends Controller {
 			header('Location: /user/login');
 		}
 	}
+    
+    public function userlist (){
+        if($this->logged_in()) {
+			$this->view('home', 'userlist');
+		} else {
+			header('Location: /user/login');
+		}
+    }
+    
+    public function dashboard (){
+        if($this->logged_in()) {
+			$this->view('home', 'dashboard');
+		} else {
+			header('Location: /user/login');
+		}
+    }
+    
+    public function uploadpage (){
+        if($this->logged_in()) {
+			$this->view('home', 'uploadpage');
+		} else {
+			header('Location: /user/login');
+		}
+    }
 	
 }
