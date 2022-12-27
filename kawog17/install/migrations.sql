@@ -8,5 +8,7 @@ USE mvc;
 CREATE TABLE user (
     user_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(126) UNIQUE NOT NULL,
-    password VARCHAR(126)
+    name VARCHAR(126) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(126) NOT NULL
 );

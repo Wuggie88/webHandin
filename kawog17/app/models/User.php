@@ -30,14 +30,22 @@ class User extends Database {
 	 */
 	public function register() {
 
-		$email = filter_var ( $_POST['email'], FILTER_SANITIZE_STRING);
-		$password = filter_var ( $_POST['password'], FILTER_SANITIZE_STRING);
+		$email = filter_var ( $_POST['email'], FILTER_UNSAFE_RAW);
+        /*
+        $name = filter_var ( $_POST['name'], FILTER_SANITIZE_STRING);
+        $username = filter_var ( $_POST['username'], FILTER_SANITIZE_STRING);
+        */
+		$password = filter_var ( $_POST['password'], FILTER_UNSAFE_RAW);
 		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 		$sql = "INSERT INTO user (email, password) VALUES (:email, :password);";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':email', $email);
+        /*
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':username', $username);
+        */
 		$stmt->bindParam(':password', $hashed_password);
 		$stmt->execute();
 
