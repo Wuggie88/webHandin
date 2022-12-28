@@ -15,9 +15,9 @@ CREATE TABLE user (
 
 CREATE TABLE image (
 	id INT(11) UNSIGNED AUTO_INCREMENT UNIQUE,
-    user_id INT(11),
+    username VARCHAR(30),
     title VARCHAR(30) NOT NULL,
     description VARCHAR(126) NOT NULL,
     imagename VARCHAR(126) NOT NULL PRIMARY KEY,
-    image longblob
+    image blob
 );
