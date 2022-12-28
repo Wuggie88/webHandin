@@ -3,7 +3,7 @@
     <div>    
         <label for="email">Email:</label>
         <br>
-        <input id="email" name="email">
+        <input id="email" name="email" type="email" pattern="\S+@\S+\.([a-z]|[A-Z]){1,5}">
     </div>
 
     <div>    
@@ -21,7 +21,7 @@
     <div>    
         <label for="password">password</label>
         <br>
-        <input id="password" name="password" type="password">
+        <input id="password" name="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\S{7,31}">
     </div>
 
     <button type="submit">Submit</button>

@@ -34,7 +34,8 @@ class HomeController extends Controller {
     
     public function dashboard (){
         if($this->logged_in()) {
-			$this->view('home', 'dashboard');
+            $viewbag['images'] = $this->model('home')->get_images();
+			$this->view('home', 'dashboard', $viewbag);
 		} else {
 			header('Location: /user/login');
 		}
@@ -46,6 +47,15 @@ class HomeController extends Controller {
 		} else {
 			header('Location: /user/login');
 		}
+    }
+    
+    public function upload () {
+        if($this->method('post')) {
+            $username = $this->model('Home')->upload();
+            header('Location: /home/dashboard');
+        } else {
+            $this->view('home', 'uploadpage');
+        }
     }
 	
 }

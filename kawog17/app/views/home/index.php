@@ -7,10 +7,5 @@
      */
 ?>
 
-<pre>
-    <?php 
-    print_r($viewbag); 
-    ?>
-</pre>
 
 <img src="/public/assets/fish.jpg" alt="it's a fish"/>
