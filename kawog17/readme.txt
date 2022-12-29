@@ -23,6 +23,9 @@ security:
     -Passwords are hashed
 
 List of known errors:
+
     -In the registration, the Name and Username does not use Regex, I tried to find something useful to put there but it didn't make sense.
     -The home model does not return an error on wrong file extentions.
     -I do not understand the API part of this assignment sadly, I have tried making what is in the API in my own way, sadly this is not following the exact design as it's asked for. What I think is wrong here, is that I'm just not good enough at this yet.
+    
+    -blobs not being converted to pictures, this is a major one, but I've tried for several days to convert the blob back into a picture, and it has yielded nothing, the closest i've gotten was a totally black website with a square in the middle, this was with a php header with Content-type image. I have also tried with, for example,  a '<img src="data:filetype;base64,'.base64:encode(stipslashes($photo->image)).'" kind of code amongs others, and they yielded no useable results. this also lead to the images not having the username for the uploader in them, since I spend all my time trying to fix this issue, as it's the core of the website. 

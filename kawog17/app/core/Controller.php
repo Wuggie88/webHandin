@@ -1,9 +1,5 @@
 <?php
-/**
- * All Controller inherit this class
- * It defines convenience methods which allow controllers to
- * call models, services and views.
- */
+
 class Controller {
 	
 	protected function model($model) {

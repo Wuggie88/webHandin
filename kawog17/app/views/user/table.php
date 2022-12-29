@@ -1,9 +1,5 @@
 <?php
-    /**
-     * This is an example of a generic table
-     * which will print the content of the viewbag
-     * without knowing what content to expect
-     */
+
 ?>
 <table >
     <thead >

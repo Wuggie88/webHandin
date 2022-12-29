@@ -1,10 +1,7 @@
 <h1>This is the image feed dashboard</h1>
 
 <?php
-    /**
-     * Anything included in the $viewbag, passed from the controller
-     * is available here.
-     */
+
 ?>
 
 
@@ -31,18 +28,18 @@
     <?php endforeach; ?>
 </table>
 
-<!-- From Hagges
 
 <?php 
-                        /*henter nyheder fra databasen*/
 /*
-                            $sql = "SELECT * FROM begivenheder ORDER BY id DESC;";
+
+                            An idea of how to make the pictures load in with the title having a underline (this would need to be setup in CSS ofc)
+                            $sql = "SELECT * FROM image ORDER BY id DESC;";
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                    echo "" .$row["titel"] . "<div class='underline'></div>" . $row["text"];
+                                    echo "" .$row["titel"] . "<div class='underline'></div>" . $row["image"];
                                 }
                             } else {
                                 echo "0 results";
@@ -52,5 +49,3 @@
                         ?> 
 
 */
-
--->
